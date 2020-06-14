@@ -1,0 +1,315 @@
+*{
+outline:none;
+}
+button:focus{
+    outline: 0;
+}
+ul, ol {
+    list-style: none;
+}
+.my-head{
+	width: 100%;
+	height: 100%;
+}
+.my-head-frame{
+	width: 1519px;
+	height: 42px;
+	margin: 0 auto;
+	padding: 2px 250px 2px 250px;
+}
+.my-head-frame img{
+	height: 38px;	
+}
+.my-head-frame a{
+	margin-left: 400px; 	
+}
+.my-menu{
+	width: 100%;
+	height: 100%;
+}
+.my-menu-frame{
+	position: absolute;
+    left: 0;
+    top: 42px;
+    width: 100%;
+    min-width: 1280px;
+    height: 84px;
+    z-index: 99;
+    background: #000;
+    background: rgba(0,0,0,0.8);
+    overflow: none;
+}
+.my-menu-inner{
+	width: 1200px;
+    height: 84px;
+    margin: 0 auto;
+    position: relative;
+}
+.logo{
+	float: left;
+	position: relative;
+	left: 0;
+    top: 16px;
+    background: url("../images/logo.png") no-repeat center center;
+    width: 200px;
+    height: 54px;
+}
+.my-nav{
+	width: 1020px;
+    padding-left: 230px;
+}
+.my-nav li{
+    float: left;
+    width: 110px;
+    height: 84px;
+    text-align: center;
+   	list-style: none;
+}
+.my-nav a {
+    display: block;
+    width: 110px;
+    height: 64px;
+    padding: 20px 0 0;
+    color: #c9c9dd;
+    font-size: 18px;
+    line-height: 30px;
+    text-decoration: none;
+}
+.my-nav em {
+    display: block;
+    padding-top: 5px;
+    font-size: 12px;
+    line-height: 16px;
+    color: #858792;
+}
+
+.my-nav li:hover{
+	transition: 
+	border-bottom: 
+}
+.my-wrapper{
+	padding-top: 618px;
+    background: no-repeat center top;
+    position: relative;
+    min-width: 1280px;
+    background-image: url("../images/body-bg.jpg");
+}
+.my-content{
+	width: 100%;
+    min-width: 1200px;
+    min-height: 650px;
+    padding-bottom: 30px;
+    height: auto;
+    margin: 0 auto;
+    background: url("../images/ny_con_bg.jpg") no-repeat center top;
+}
+
+.my-content-box{
+	width: 1200px;
+    margin: 0 auto;
+}
+.login-frame{
+	position: relative;
+    margin: 419px auto 0;
+    width: 1200px;
+    height: 115px;
+    background: url("../images/bg_header.png") no-repeat;
+}
+.login-show{
+	width: 732px;
+    padding: 8px 20px 0;
+    color: #a6afbc;
+    position: relative;
+    float: left;
+    overflow: hidden;
+}
+.avator{
+	top: -5px;
+    left: 10px;
+    width: 106px;
+    height: 120px;
+    display: block;
+    background-position: -110px -174px;
+    background-image: url("../images/spr.png");
+    position: absolute;
+    text-decoration: none;
+    color: #363636;
+}
+.avator img{
+	margin: 24px 0 0 15px;
+    border-radius: 10px;
+    display: block;
+    border: 0;
+    border-radius: 2px 2px 2px 2px;
+    width: 75px;
+    height: 75px;
+    cursor: pointer;
+}
+.my-level{
+	top: 81px;
+    left: 68px;
+    width: 21px;
+    height: 20px;
+    padding-left: 3px;
+    background-position: -331px -105px;
+    color: #ffffff;
+    background-image: url("../images/spr.png");
+     position: absolute;
+     cursor: pointer;
+}
+.my-information{
+	margin-left: 130px;
+	color: #b3bbc5;
+	width: 630px;
+	float: left;
+	height: 100px;
+	font-size: 20px;
+	margin-top: 5px;
+	overflow: hidden;
+}
+.btns{
+	margin-left: 50px;
+	float: left;
+	width: 408px;
+    padding: 8px 10px 0 10px;
+    position: relative;
+    overflow: hidden;
+}
+.headIcons{
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}
+#regForm input{
+    width: 250px;
+}
+#logForm input{
+    width: 250px;
+}
+#mdfForm input{
+    width: 250px;
+}
+#addForm input{
+    width: 250px;
+}
+#addForm select{
+    width: 250px;
+}
+#heroMdfForm input{
+    width: 250px;
+}
+#heroMdfForm select{
+    width: 250px;
+}
+.herolist-box{
+    margin-bottom: 50px;
+    padding: 35px 28px;
+    border: 2px solid #E8E8E8;
+    border-top: 0;
+    position: relative;
+}
+.herolist-types{
+    background-color: #EFEFEF;
+    border-radius: 5px;
+    color: #686869;
+}
+.types-left{
+    float: left;
+    width: 80px;
+    height: 53px;
+    text-align: center;
+    background-color: #2C88E2;
+    color: #fff;
+    border-radius: 5px 0 0 5px;
+    padding: 0;
+    margin: 0;
+}
+.types-left li{
+    display: block;
+    height: 52px;
+    line-height: 52px;
+    font-size: 16px;
+}
+.types-ms{
+    float: left;
+    width: 900px;
+    padding: 8px 0;
+    height: 20px;
+    line-height: 21px;
+    margin: 0;
+}
+.types-ms li {
+    float: left;
+    padding-left: 15px;
+    min-width: 90px;
+    font-size: 14px;
+    cursor: pointer;
+}
+.herosearch{
+    position: absolute;
+    top: 39px;
+    right: 60px;
+    border: 1px solid #D2D2D2;
+    padding: 10px;
+    height: 46px;
+    width: 220px;
+    cursor: pointer;
+}
+.herosearch-input{
+    float: left;
+    border: none;
+    width: 80%;
+    height: 22px;
+    line-height: 20px;
+    font-size: 12px;
+    color: #747475;
+    background: none;
+}
+.herosearch-icon {
+    float: right;
+    padding-left: 6px;
+    padding-top: 4px;
+    width: 22px;
+    height: 22px;
+    border-left: 1px solid #D5D5D5;
+}
+.herolist-content{
+    margin-top: 40px;
+}
+.herolist-img{
+    display: block;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+#mask{
+    z-index: 99;
+    background: #000;
+    opacity: 0.35;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.displayNone{
+    display: none;
+}
+.footer-wrap{
+    position: relative;
+    z-index: 2;
+    height: 362px;
+    background: url(../images/bg_footer.jpg) no-repeat center 0;
+}
+.foot-box{
+    position: relative;
+    background: none;
+    width: 1200px;
+    padding-top: 80px;
+    color: #000;
+    font: 12px/20px "微软雅黑","宋体";
+    min-width: 960px;
+    margin: 0 auto;
+    text-align: left;
+}

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>英雄资料列表-英雄介绍</title>
+    <meta charset="utf-8">
+    <link rel="icon" href="images/icon.jpg" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/index.js"></script>
+</head>
+<body>
+    <div class="my-head">
+        <div class="my-head-frame">
+            <div>
+                 <img src="images/tencent.png">
+                <img src="images/head-image1.jpg">
+                 <a href="" class="text-right">成长守护平台</a>
+            </div>
+       </div>
+  
+   </div>
+   <div class="my-menu">
+        <div class="my-menu-frame">
+            <div class="my-menu-inner">
+                <div class="logo">
+                </div>
+                <ul class="my-nav clearfix">
+                    <li>
+                        <a href="">官方首页<em>HOME</em></a>
+                    </li>
+                     <li>
+                        <a href="">游戏资料<em>DATA</em></a>
+                    </li>
+                     <li>
+                        <a href="">内容中心<em>CONTENTS</em></a>
+                    </li>
+                     <li>
+                        <a href="">赛事中心<em>MATCH</em></a>
+                    </li>
+                     <li>
+                        <a href="">百态王者<em>CULTURE</em></a>
+                    </li>
+                     <li>
+                        <a href="">社区互动<em>COMMUNITY</em></a>
+                    </li>
+                     <li>
+                        <a href="">玩家支持<em>PLAYER</em></a>
+                    </li>
+                </ul>
+            </div>  
+             <div class="login-frame clearfix">
+                <div class="login-show">
+                    <a class="avator">
+                        <img id="curIcon" src="images/avatar1.jpg">
+                        <span class="my-level">30</span>
+                    </a>
+                    <div class="my-information">
+                        <div class="container" style="width: 620px;">
+                            <div class="row">
+                                 <div class="col-md-6 " >
+                                    <span>管理者：</span><span id="curName"></span>
+                                 </div>
+                                  <div class="col-md-6 " >
+                                    <span id="myTip">(请登陆后进行修改)</span>
+                                 </div>
+                            </div>
+                            <div class="row" style="margin-top: 25px">
+                                 <div class="col-md-6 " >
+                                    <button id="modify" type="button" class="btn btn-warning disabled" data-toggle="modal" data-target="#mdfModal">修改信息</button>
+                                 </div>
+                                  <div class="col-md-6 " >
+                                    <button id="logout" type="button" class="btn btn-danger disabled">注销</button>
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                <div class="btns clearfix">
+                    <div>
+                        <button id="btnLogin" type="button" class="btn btn-success btn-lg btn-block " data-toggle="modal" data-target="#logModal">登录</button>
+                    </div>
+                    <div style="margin-top: 5px;">
+                        <button id="btnReg" type="button" class="btn btn-info btn-lg btn-block" data-toggle="modal" data-target="#regModal">注册</button>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="my-wrapper">
+        <div class="my-content">
+            <div class="my-content-box">
+                <div class="herolist-box">
+                    <div class="herolist-types clearfix">
+                        <ul class="types-left">
+                            <li>定位</li>
+                        </ul>
+                       <ul class="clearfix types-ms">
+                            <li>
+                                <div class="radio">
+                                     <label>
+                                        <input type="radio" name="optionsRadios" id="radios0" value="0" onclick="positionSearch(this)"> 坦克
+                                      </label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="radio">
+                                     <label>
+                                        <input type="radio" name="optionsRadios" id="radios1" value="1" onclick="positionSearch(this)"> 战士
+                                      </label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="radio">
+                                     <label>
+                                        <input type="radio" name="optionsRadios" id="radios2" value="2" onclick="positionSearch(this)"> 刺客
+                                      </label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="radio">
+                                     <label>
+                                        <input type="radio" name="optionsRadios" id="radios3" value="3" onclick="positionSearch(this)"> 法师
+                                      </label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="radio">
+                                     <label>
+                                        <input type="radio" name="optionsRadios" id="radios4" value="4" onclick="positionSearch(this)"> 射手
+                                      </label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="radio">
+                                     <label>
+                                        <input type="radio" name="optionsRadios" id="radios5" value="5" onclick="positionSearch(this)"> 辅助
+                                      </label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="radio">
+                                     <label>
+                                        <input type="radio" name="optionsRadios" id="radios6" value="6" checked="checked" onclick="positionSearch(this)"> 全部
+                                      </label>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="herosearch">
+                            <input type="text" id="search" name="search" class="herosearch-input" placeholder="请输入你想要搜索的英雄名">
+                            <span class="herosearch-icon glyphicon glyphicon-search" title="点击搜索" id="searchHeroBtn" onclick="nameSearch(this)"></span>
+                        </div>
+                    </div>
+                    <div class="herolist-content">
+                        <div class="container" id="heroContainer">
+                            
+                        </div>
+                    </div>
+                    <div id="mask">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   <!--  <div class="footer-wrap">
+        <div class="foot-box">
+            <div class="foot-cp">
+                
+            </div>
+        </div>
+    </div> -->
+    <!-- 登录模态框 -->
+    <div class="modal fade" id="logModal" tabindex="-1" role="dialog" aria-labelledby="logModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+             <div class="modal-content">
+                 <div class="modal-header">
+                     <button type="button" class="close logModalClose" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                     </button>
+                     <h4 class="modal-title" id="logModalLabel">
+                    登录
+                     </h4>
+                 </div>
+                 <div class="modal-body">
+                <form class="form-horizontal" role="form" id="logForm" action="javascript:;" onsubmit="return RegExpLogin();" method="post">
+                        <div class="form-group">
+                             <label for="logPhonenumber" class="col-sm-2 control-label">手机号</label>
+                             <div class="col-sm-10">
+                                  <input type="text" class="form-control" id="logPhonenumber" placeholder="请输入正确的11位手机号码" maxlength="11" required pattern="^[0-9]{11,20}$" title="11个数字" onKeypress="javascript:if(event.keyCode == 32)event.returnValue = false;" data-container="body" data-toggle="popover" data-placement="right" 
+                                  data-content="不存在该账号">
+                             </div>
+                        </div>
+                        <div class="form-group">
+                             <label for="username" class="col-sm-2 control-label">密码</label>
+                             <div class="col-sm-10">
+                                  <input type="password" class="form-control" id="logPassword" placeholder="请输入密码" maxlength="10" pattern=".([a-zA-Z]|[0-9]){5,10}" title="5到10个英文或字母" required onKeypress="javascript:if(event.keyCode == 32)event.returnValue = false;" title="警告"  
+                                  data-container="body" data-toggle="popover" data-placement="right" 
+                                  data-content="密码错误">
+                             </div>
+                        </div> 
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input id="rememberMe" type="checkbox"> 请记住我
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="modal-footer">
+                             <button type="button" class="btn btn-default logModalClose" data-dismiss="modal">关闭
+                             </button>
+                             <button type="onsubmit" class="btn btn-primary" id="logSubmit">
+                                 提交
+                             </button>
+                         </div>
+                     </form>
+                 </div>
+              </div><!-- /.modal-content -->
+         </div><!-- /.modal -->
+    </div>
+    <!-- 注册模态框 -->
+    <div class="modal fade" id="regModal" tabindex="-1" role="dialog" aria-labelledby="regModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+             <div class="modal-content">
+                 <div class="modal-header">
+                     <button type="button" class="close regModalClose" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                     </button>
+                     <h4 class="modal-title" id="regModalLabel">
+                    注册
+                     </h4>
+                 </div>
+                 <div class="modal-body">
+                    <form class="form-horizontal" role="form" id="regForm" action="javascript:;" onsubmit="return RegExpRegister();" method="post">
+                         <div class="form-group">
+                             <label class="col-sm-2 control-label">头像</label>
+                             <div class="col-sm-10">
+                                 <img id="regHeadIcon" class="headIcons" src="images/head1.jpg">
+                             </div>
+                        </div>
+                        <div class="form-group">
+                             <label for="phonenumber" class="col-sm-2 control-label">手机号</label>
+                             <div class="col-sm-10">
+                                  <input type="text" class="form-control" id="phonenumber" placeholder="请输入正确的11位手机号码" maxlength="11" required pattern="^[0-9]{11,20}$" title="11个数字" title="警告"  
+                                  data-container="body" data-toggle="popover" data-placement="right" 
+                                  data-content="该手机号已被注册">
+                             </div>
+                        </div>
+                        <div class="form-group">
+                             <label for="username" class="col-sm-2 control-label">用户名</label>
+                             <div class="col-sm-10">
+                                  <input type="text"  class="form-control" id="username" placeholder="请输入用户名" pattern=".{2,5}" required title="2到5个字符" maxlength="5" onKeypress="javascript:if(event.keyCode == 32)event.returnValue = false;">
+                             </div>
+                        </div> 
+                        <div class="form-group">
+                             <label for="username" class="col-sm-2 control-label">密码</label>
+                             <div class="col-sm-10">
+                                  <input type="password" class="form-control" id="password" placeholder="请输入密码" maxlength="10" pattern=".([a-zA-Z]|[0-9]){5,10}" title="5到10个英文或字母" required onKeypress="javascript:if(event.keyCode == 32)event.returnValue = false;">
+                             </div>
+                        </div> 
+                        <div id="regSuccessAlert" class="alert alert-success">
+                              <a href="#" data-dismiss="alert">&times;</a>
+                              <strong>注册成功！</strong>3秒后自动登录！
+                        </div>
+                         <div class="modal-footer">
+                             <button type="button" class="btn btn-default regModalClose" data-dismiss="modal">关闭
+                             </button>
+                             <button type="onsubmit" class="btn btn-primary" id="regSubmit">
+                                 提交
+                             </button>
+                         </div>
+                     </form>
+                 </div>
+              </div><!-- /.modal-content -->
+         </div><!-- /.modal -->
+    </div>
+    <!-- 修改信息模态框 -->
+    <div class="modal fade" id="mdfModal" tabindex="-1" role="dialog" aria-labelledby="mdfModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+             <div class="modal-content">
+                 <div class="modal-header">
+                     <button type="button" class="close mdfModalClose" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                     </button>
+                     <h4 class="modal-title" id="mdfModalLabel">
+                    注册
+                     </h4>
+                 </div>
+                 <div class="modal-body">
+                    <form class="form-horizontal" role="form" id="mdfForm" action="javascript:;" onsubmit="return mdfUserInf();" method="post">
+                         <div class="form-group">
+                             <label class="col-sm-2 control-label">头像</label>
+                             <div class="col-sm-10">
+                                 <img id="mdfHeadIcon" class="headIcons" src="images/head1.jpg">
+                             </div>
+                        </div>
+                         <div class="form-group">
+                             <label class="col-sm-2 control-label">手机号</label>
+                             <div class="col-sm-10">
+                                  <input type="text" class="form-control" readonly = "readonly" id="mdfPhonenumber">
+                             </div>
+                        </div>
+                        <div class="form-group">
+                             <label for="mdfusername" class="col-sm-2 control-label">用户名</label>
+                             <div class="col-sm-10">
+                                  <input type="text"  class="form-control" id="mdfUsername" placeholder="请输入用户名" pattern=".{2,5}" required title="2到5个字符" maxlength="5" onKeypress="javascript:if(event.keyCode == 32)event.returnValue = false;">
+                             </div>
+                        </div> 
+                        <div class="form-group">
+                              <label class="col-sm-2 control-label"></label>
+                              &nbsp&nbsp&nbsp&nbsp<button type="button" class="btn btn-danger" id="changePassword" >修改密码
+                             </button>
+                        </div> 
+                        <div class="form-group">
+                             <label for="mdfPassword" class="col-sm-2 control-label">密码</label>
+                             <div class="col-sm-10">
+                                  <input type="password" class="form-control" id="mdfPassword" maxlength="10" pattern=".([a-zA-Z]|[0-9]){5,10}" title="5到10个英文或字母" required onKeypress="javascript:if(event.keyCode == 32)event.returnValue = false;" readonly = "readonly">
+                             </div>
+                        </div> 
+                        <div id="mdfSuccessAlert" class="alert alert-success">
+                              <a href="#" data-dismiss="alert">&times;</a>
+                              <strong>修改成功！</strong>1秒后自动关闭！
+                        </div>
+                         <div id="mdfWarningAlert" class="alert alert-warning">
+                              <a href="#" data-dismiss="alert">&times;</a>
+                              <strong>请做出修改</strong>
+                        </div>
+                         <div class="modal-footer">
+                             <button type="button" class="btn btn-default mdfModalClose" data-dismiss="modal">关闭
+                             </button>
+                             <button type="onsubmit" class="btn btn-primary" id="mdfSubmit">
+                                 提交
+                             </button>
+                         </div>
+                     </form>
+                 </div>
+              </div><!-- /.modal-content -->
+         </div><!-- /.modal -->
+    </div>
+    <!-- 增加英雄模态框 -->
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+             <div class="modal-content">
+                 <div class="modal-header">
+                     <button type="button" class="close addModalClose" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                     </button>
+                     <h4 class="modal-title" id="addModalLabel">
+                    增加英雄
+                     </h4>
+                 </div>
+                 <div class="modal-body">
+                <form class="form-horizontal" role="form" id="addForm" action="javascript:;" onsubmit="return addHero();" method="post">
+                        <div class="form-group">
+                             <label for="heroname" class="col-sm-2 control-label">英雄名称</label>
+                             <div class="col-sm-10">
+                                  <input type="text" class="form-control" id="heroname" placeholder="请输入英雄名称" maxlength="10" required pattern=".{1,10}$" onKeypress="javascript:if(event.keyCode == 32)event.returnValue = false;" data-container="body" title="提示" data-toggle="popover" data-placement="right" 
+                                  data-content="英雄名重复">
+                             </div>
+                        </div>
+                        <div class="form-group">
+                             <label for="imgsrc" class="col-sm-2 control-label">图片路径</label>
+                             <div class="col-sm-10">
+                                  <input type="text" id="imgsrc" class="form-control" placeholder="请输入合法的路径" required onKeypress="javascript:if(event.keyCode == 32)event.returnValue = false;">
+                             </div>
+                        </div> 
+                        <div class="form-group">
+                            <label for="position" class="col-sm-2 control-label">英雄定位</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" id="position">
+                                    <option>坦克</option>
+                                    <option>战士</option>
+                                    <option>刺客</option>
+                                    <option>法师</option>
+                                    <option>射手</option>
+                                    <option>辅助</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="addSuccessAlert" class="alert alert-success">
+                              <a href="#" data-dismiss="alert">&times;</a>
+                              <strong>增加成功！</strong>1秒后自动关闭！
+                        </div>
+                         <div class="modal-footer">
+                             <button type="button" class="btn btn-default addModalClose" data-dismiss="modal">关闭
+                             </button>
+                             <button type="onsubmit" class="btn btn-primary" id="addSubmit">
+                                 提交
+                             </button>
+                         </div>
+                     </form>
+                 </div>
+              </div><!-- /.modal-content -->
+         </div><!-- /.modal -->
+    </div>
+     <!-- 修改英雄信息模态框 -->
+    <div class="modal fade" id="heroMdfModal" tabindex="-1" role="dialog" aria-labelledby="heroMdfModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+             <div class="modal-content">
+                 <div class="modal-header">
+                     <button type="button" class="close heroMdfModalClose" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                     </button>
+                     <h4 class="modal-title" id="heroMdfModalLabel">
+                    修改英雄信息
+                     </h4>
+                 </div>
+                 <div class="modal-body">
+                    <form class="form-horizontal" role="form" id="heroMdfForm" action="javascript:;" onsubmit="return mdfHeroInf();" method="post">
+                        <div class="form-group">
+                             <label class="col-sm-2 control-label">当前图片</label>
+                             <div class="col-sm-10">
+                                 <img id="curHeroImg" style="width: 100px;height: 100px" src="images/0.jpg">
+                             </div>
+                        </div>
+                        <div class="form-group">
+                             <label for="imgsrc" class="col-sm-2 control-label">ID</label>
+                             <div class="col-sm-10">
+                                  <input type="text" id="curHeroid" class="form-control"  required readonly="readonly">
+                             </div>
+                        </div> 
+                        <div class="form-group">
+                             <label for="curHeroname" class="col-sm-2 control-label">英雄名称</label>
+                             <div class="col-sm-10">
+                                  <input type="text" class="form-control" id="curHeroname" placeholder="请输入英雄名称" maxlength="10" required pattern=".{1,10}$" onKeypress="javascript:if(event.keyCode == 32)event.returnValue = false;" data-container="body" title="提示" data-toggle="popover" data-placement="right" 
+                                  data-content="英雄名重复">
+                             </div>
+                        </div>
+                        <div class="form-group">
+                             <label for="curImgsrc" class="col-sm-2 control-label">图片路径</label>
+                             <div class="col-sm-10">
+                                  <input type="text" id="curImgsrc" class="form-control" placeholder="请输入合法的路径" required onKeypress="javascript:if(event.keyCode == 32)event.returnValue = false;">
+                             </div>
+                        </div> 
+                         <div class="form-group">
+                            <label for="curPosition" class="col-sm-2 control-label">英雄定位</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" id="curPosition">
+                                    <option>坦克</option>
+                                    <option>战士</option>
+                                    <option>刺客</option>
+                                    <option>法师</option>
+                                    <option>射手</option>
+                                    <option>辅助</option>
+                                </select>
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input id="deleteHero" type="checkbox"> <span style="color: red">删除英雄</span> 
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="heroMdfSuccessAlert" class="alert alert-success">
+                              <a href="#" data-dismiss="alert">&times;</a>
+                              <strong>修改成功！</strong>1秒后自动关闭！
+                        </div>
+                        <div id="heroMdfWarningAlert" class="alert alert-warning">
+                              <a href="#" data-dismiss="alert">&times;</a>
+                              <strong>请做出修改</strong>
+                        </div>
+                         <div class="modal-footer">
+                             <button type="button" class="btn btn-default heroMdfModalClose" data-dismiss="modal">关闭
+                             </button>
+                             <button type="onsubmit" class="btn btn-primary" id="heroMdfSubmit">
+                                 提交
+                             </button>
+                         </div>
+                     </form>
+                 </div>
+              </div><!-- /.modal-content -->
+         </div><!-- /.modal -->
+    </div>
+</body>
+</html>
