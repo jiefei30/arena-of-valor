@@ -19,28 +19,46 @@ var curHeroImg
 //英雄定位
 var position = ["坦克","战士","刺客","法师","射手","辅助"]
 
-//这里面的三个对象只会被创建一次
+//这里面的前三个对象只会被创建一次
 window.onload=function (){
 	//如果本地储存里没有users总对象
 	if(localStorage.getItem("users")==null){
+		//创建默认用户
+		let user = createUser(0, "init", "init", "init");
 		let users = new Object();
+		users.init = user;
 		let str = JSON.stringify(users); 
 		localStorage.setItem("users", str)
 	}
+	//英雄数量
+	if (localStorage.getItem("number")==null) {
+		localStorage.setItem("number", 0)
+	}
+	//英雄定位
+	if (localStorage.getItem("position")==null) {
+		localStorage.setItem("position", JSON.stringify(position))
+	}
 	//如果本地储存里没有heroes总对象
-	if(localStorage.getItem("heroes")==null){
+	if(localStorage.getItem("heroes")==null){	
 		let heroes = new Object();
 		let str = JSON.stringify(heroes); 
-		localStorage.setItem("heroes", str)
+		localStorage.setItem("heroes", str);
+		HEROES = heroes;
+		//添加初始英雄
+		localAddHero(createHero("images/1.jpg", "廉颇", 0));
+		localAddHero(createHero("images/2.jpg", "小乔", 3));
+		localAddHero(createHero("images/3.jpg", "赵云", 1));
+		localAddHero(createHero("images/4.jpg", "墨子", 3));
+		localAddHero(createHero("images/5.jpg", "妲己", 3));
+		localAddHero(createHero("images/6.jpg", "嬴政", 3));
+		localAddHero(createHero("images/7.jpg", "孙尚香", 4));
+		localAddHero(createHero("images/8.jpg", "鲁班大师", 4));
+		localAddHero(createHero("images/9.jpg", "庄周", 5));
 	}
 	//记住我登录
 	if (localStorage.getItem("rememberMe")) {
 		curNumber = localStorage.getItem("rememberMe")
 		logining(USERS[curNumber])
-	}
-	//英雄数量
-	if (localStorage.getItem("number")) {
-		localStorage.setItem("number", 0)
 	}
 	
 }
@@ -211,6 +229,8 @@ function logining(user) {
 	$('#mdfPassword').val(user.password)
 	$('#mask').toggleClass('displayNone')
 	$('#myTip').text('（请不要调皮的乱搞）')
+	//把英雄更新
+	update(6,'')
 }
 
 
@@ -220,7 +240,6 @@ function RegExpRegister() {
 	let phonenumber = $('#phonenumber').val()
 	let username = $('#username').val()
 	let password = $('#password').val()
-
 	//如果有这个用户（不为undifined ）
 	if(USERS[phonenumber]){
 		//显示弹出框
@@ -326,7 +345,7 @@ function getHeroInf(heroBlock) {
 	$('#curHeroid').val(hero.heroid)
 	$('#curHeroname').val(hero.heroname)
 	$('#curImgsrc').val(hero.imgsrc)
-	// let position = JSON.parse(localStorage.getItem("position"));
+	let position = JSON.parse(localStorage.getItem("position"));
 	$('#curPosition').val(position[hero.position])
 }
 
